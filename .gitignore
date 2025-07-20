@@ -1,17 +1,8 @@
-# Abaikan folder virtual environment
 venv/
-
-# Abaikan cache Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Abaikan file database
 *.db
-
-# Abaikan file sistem tertentu
 .DS_Store
-
-# Abaikan file environment lokal
 .env
