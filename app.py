@@ -215,14 +215,30 @@ else:
 
 
 # --- FOOTER KUSTOM DI BAGIAN BAWAH HALAMAN UTAMA ---
-st.markdown("---") # Garis pemisah sebelum footer
+st.markdown("---")  # Garis pemisah sebelum footer
 st.markdown(
     """
+    <style>
+        .footer {
+            background-color: #6D4C41;
+            padding: 20px;
+            margin-top: 3rem;
+            border-radius: 10px;
+            color: #FBE9E7;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+
     <div class="footer">
-        <p>Dibuat dengan oleh Ndr</p>
         <p>Menggunakan Streamlit & Ultralytics YOLOv8</p>
         <p style='font-size: small;'>Untuk tujuan edukasi dan demonstrasi.</p>
     </div>
     """,
     unsafe_allow_html=True
 )
+
