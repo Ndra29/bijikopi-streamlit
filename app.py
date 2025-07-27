@@ -28,126 +28,111 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
-# --- CSS Kustom untuk Tema Warna & Background Biru Tua ---
+# --- CSS Kustom untuk Tema Warna & Background coklat ---
 st.markdown("""
     <style>
-    /* Mengubah warna latar belakang seluruh aplikasi menjadi Biru Tua */
-    .stApp {
-        background-color: #0A192F; /* Biru Tua (misal, Navy Blue) */
-        background-image: none; /* Hapus tekstur jika tidak diinginkan */
-        color: #E6E6FA; /* Warna teks umum yang terang (Lavender) */
+    /* Background utama seluruh aplikasi */
+    html, body, .stApp {
+        background-color: #4E342E !important; /* Coklat tua */
+        color: #FBE9E7 !important; /* Teks terang */
     }
 
-    /* Mengubah warna latar belakang sidebar */
-    .st-emotion-cache-1ldf150 { /* Selector untuk sidebar. Ini bisa berubah, jadi periksa inspektur browser jika tidak berfungsi */
-        background-color: #1F3B59; /* Biru tua sedikit lebih terang untuk sidebar */
-        color: #E6E6FA; /* Teks terang */
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #6D4C41 !important; /* Coklat medium */
+        color: #FBE9E7 !important;
     }
 
-    /* Mengubah warna latar belakang main content area jika menggunakan columns/containers */
-    .st-emotion-cache-z5fcl4 { /* Selector untuk main content area. Ini juga bisa berubah */
-        background-color: rgba(255, 255, 255, 0.1); /* Putih Transparan (gelap) untuk konten */
-        padding: 20px;
+    /* Kontainer utama */
+    .block-container {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        padding: 2rem;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
-    /* Styling untuk judul utama */
+
+    /* Judul utama */
     h1 {
-        color: #64FFDA; /* Aqua terang untuk judul (warna kontras cerah) */
+        color: #FFCC80 !important;
         text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 3.5rem;
         margin-bottom: 0.5rem;
     }
-    /* Styling untuk subheader */
+
+    /* Subjudul */
     h3 {
-        color: #CCD6F6; /* Abu-abu kebiruan terang */
+        color: #FFE0B2 !important;
         text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1.8rem;
         margin-top: 0;
     }
-    /* Styling untuk paragraf biasa */
+
+    /* Paragraf */
     p, .stMarkdown {
-        color: #E6E6FA; /* Lavender - teks yang terang dan mudah dibaca */
+        color: #FBE9E7 !important;
         font-size: 1.1rem;
         line-height: 1.6;
     }
-    /* Styling untuk tombol upload file */
-    .st-emotion-cache-1j0r5k0 {
-        background-color: #64FFDA; /* Aqua terang */
-        color: #0A192F; /* Biru Tua untuk teks tombol */
-        border: none;
-        border-radius: 8px;
-        padding: 12px 25px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .st-emotion-cache-1j0r5k0:hover {
-        background-color: #52D8BB; /* Sedikit lebih gelap saat hover */
-        color: #0A192F;
+
+    /* Tombol upload file */
+    button[kind="file"] {
+        background-color: #FFB74D !important;
+        color: #4E342E !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 12px 25px !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
     }
 
-    /* Styling untuk pesan feedback (info, success, warning) */
-    .st-emotion-cache-v01g8z { /* Untuk container pesan */
-        background-color: #2A4F6D; /* Biru gelap untuk latar pesan */
-        border-left: 5px solid #64FFDA; /* Aqua terang untuk garis kiri */
-        padding: 10px;
-        border-radius: 5px;
+    button[kind="file"]:hover {
+        background-color: #FFA726 !important;
+        color: #4E342E !important;
     }
-    .st-emotion-cache-1dp5yy6 { /* Untuk info text dalam pesan */
-        color: #E6E6FA; /* Teks terang */
+
+    /* Pesan info, warning, dsb */
+    .stAlert {
+        background-color: #5D4037 !important;
+        border-left: 5px solid #FFCC80 !important;
+        color: #FBE9E7 !important;
+        padding: 10px !important;
+        border-radius: 5px !important;
     }
 
     /* Garis pemisah */
     hr {
-        border-top: 2px solid #336699; /* Biru sedang */
+        border-top: 2px solid #8D6E63;
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
 
-    /* Styling untuk tombol di sidebar */
-    .sidebar .stButton button {
-        background-color: #64FFDA; /* Aqua terang */
-        color: #0A192F; /* Biru Tua */
-        border-radius: 5px;
-    }
-    .sidebar .stButton button:hover {
-        background-color: #52D8BB; /* Sedikit lebih gelap saat hover */
+    /* Caption gambar */
+    .stImage > img {
+        border-radius: 10px;
     }
 
-    /* Styling untuk caption gambar */
-    .st-emotion-cache-1r6dd4x {
-        text-align: center;
-        font-style: italic;
-        color: #CCD6F6; /* Abu-abu kebiruan terang */
-        margin-top: -10px;
-    }
-
-    /* Styling untuk footer kustom */
+    /* Footer */
     .footer {
-        background-color: #1F3B59; /* Biru tua untuk footer */
+        background-color: #6D4C41;
         padding: 20px;
         margin-top: 3rem;
         border-radius: 10px;
         text-align: center;
-        color: #E6E6FA; /* Warna teks sangat terang */
+        color: #FBE9E7;
     }
+
     .footer a {
-        color: #64FFDA; /* Warna link yang terang (Aqua terang) */
+        color: #FFCC80;
         text-decoration: none;
         font-weight: bold;
     }
+
     .footer a:hover {
         text-decoration: underline;
     }
-
     </style>
-    """, unsafe_allow_html=True)
-
+""", unsafe_allow_html=True)
 
 # --- Judul dan Deskripsi Aplikasi ---
 title_placeholder = st.empty()
