@@ -149,25 +149,6 @@ st.markdown(
 )
 st.write("")
 
-# --- Sidebar untuk Informasi Tambahan & Branding (Tanpa Kontak) ---
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Coffee_beans_close-up.jpg/800px-Coffee_beans_close-up.jpg", use_column_width=True) # Gambar contoh
-    st.markdown("---")
-    st.header("🔬 Tentang KopiLens")
-    st.info("""
-    KopiLens memanfaatkan kekuatan **YOLOv8**, arsitektur deteksi objek terkemuka
-    yang dilatih secara khusus untuk mengidentifikasi dan mengkategorikan
-    berbagai jenis biji kopi (misalnya, biji normal, biji hitam, biji cacat).
-    """)
-    st.header("💡 Cara Menggunakan")
-    st.markdown("""
-    1.  **Unggah Gambar:** Klik tombol 'Browse files' atau seret gambar biji kopi Anda ke area yang disediakan di halaman utama.
-    2.  **Proses Cerdas:** Sistem akan secara otomatis menganalisis gambar Anda.
-    3.  **Lihat Hasil:** Gambar dengan deteksi visual (kotak pembatas) dan daftar klasifikasi akan segera ditampilkan.
-    """)
-    st.write("---")
-    st.markdown("<p style='font-size: small; text-align: center;'>© 2025 KopiLens</p>", unsafe_allow_html=True)
-
 
 # --- Komponen Upload Gambar ---
 st.subheader("Mulai Analisis Biji Kopi Anda:")
