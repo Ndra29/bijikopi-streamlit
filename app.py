@@ -28,7 +28,7 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 
-# --- CSS Kustom untuk Tema Warna & Background coklat ---
+# --- CSS Kustom untuk Tema Warna & Background Coklat Variatif ---
 st.markdown("""
     <style>
     /* Background utama seluruh aplikasi */
@@ -41,13 +41,15 @@ st.markdown("""
     [data-testid="stSidebar"] {
         background-color: #6D4C41 !important; /* Coklat medium */
         color: #FBE9E7 !important;
+        border-right: 3px solid #8D6E63;
     }
 
     /* Kontainer utama */
     .block-container {
-        background-color: rgba(255, 255, 255, 0.05) !important;
+        background-color: rgba(141, 110, 99, 0.2) !important; /* Coklat muda semi transparan */
         padding: 2rem;
-        border-radius: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(62, 39, 35, 0.4);
     }
 
     /* Judul utama */
@@ -55,7 +57,7 @@ st.markdown("""
         color: #FFCC80 !important;
         text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 3.5rem;
+        font-size: 3.2rem;
         margin-bottom: 0.5rem;
     }
 
@@ -64,7 +66,7 @@ st.markdown("""
         color: #FFE0B2 !important;
         text-align: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-top: 0;
     }
 
@@ -77,27 +79,25 @@ st.markdown("""
 
     /* Tombol upload file */
     button[kind="file"] {
-        background-color: #FFB74D !important;
-        color: #4E342E !important;
+        background-color: #FFB74D !important; /* Coklat terang / oranye */
+        color: #3E2723 !important;
         border: none !important;
-        border-radius: 8px !important;
-        padding: 12px 25px !important;
-        font-size: 1.1rem !important;
+        border-radius: 10px !important;
+        padding: 10px 22px !important;
+        font-size: 1rem !important;
         font-weight: bold !important;
     }
 
     button[kind="file"]:hover {
         background-color: #FFA726 !important;
-        color: #4E342E !important;
+        color: #3E2723 !important;
     }
 
-    /* Pesan info, warning, dsb */
+    /* Informasi (info box Streamlit) */
     .stAlert {
-        background-color: #5D4037 !important;
-        border-left: 5px solid #FFCC80 !important;
-        color: #FBE9E7 !important;
-        padding: 10px !important;
-        border-radius: 5px !important;
+        background-color: #D7CCC8 !important;
+        border-left: 6px solid #8D6E63 !important;
+        color: #3E2723 !important;
     }
 
     /* Garis pemisah */
@@ -109,30 +109,46 @@ st.markdown("""
 
     /* Caption gambar */
     .stImage > img {
-        border-radius: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     /* Footer */
-    .footer {
-        background-color: #6D4C41;
-        padding: 20px;
-        margin-top: 3rem;
-        border-radius: 10px;
+    footer {
+        background-color: #3E2723 !important;
+        padding: 16px;
+        margin-top: 2rem;
         text-align: center;
-        color: #FBE9E7;
+        color: #FBE9E7 !important;
+        border-top: 2px solid #6D4C41;
     }
 
-    .footer a {
+    footer a {
         color: #FFCC80;
         text-decoration: none;
         font-weight: bold;
     }
 
-    .footer a:hover {
+    footer a:hover {
         text-decoration: underline;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #4E342E;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #8D6E63;
+        border-radius: 6px;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # --- Judul dan Deskripsi Aplikasi ---
 title_placeholder = st.empty()
